@@ -1,21 +1,25 @@
-'use strict'
-
-const Schema = use('Schema')
+const Schema = use('Schema');
 
 class RolesTableSchema extends Schema {
-  up () {
+  up() {
     this.create('roles', table => {
-      table.increments()
-      table.string('slug').notNullable().unique()
-      table.string('name').notNullable().unique()
-      table.text('description').nullable()
-      table.timestamps()
-    })
+      table.increments();
+      table
+        .string('slug')
+        .notNullable()
+        .unique();
+      table
+        .string('name')
+        .notNullable()
+        .unique();
+      table.text('description').nullable();
+      table.timestamps();
+    });
   }
 
-  down () {
-    this.drop('roles')
+  down() {
+    this.drop('roles');
   }
 }
 
-module.exports = RolesTableSchema
+module.exports = RolesTableSchema;
