@@ -5,6 +5,8 @@ Route.group(() => {
   Route.post('users', 'UserController.store');
 
   Route.post('sessions', 'SessionController.store');
+
+  Route.post('refresh', 'TokenController.store');
 })
   .prefix('v1/auth')
   .namespace('Auth');
