@@ -20,3 +20,4 @@ Route.get('/', () => {
 
 require('./auth');
 require('./admin');
+require('./client');
