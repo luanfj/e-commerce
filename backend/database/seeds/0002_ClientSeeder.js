@@ -14,7 +14,7 @@ const Factory = use('Factory');
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Role = use('Role');
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
-const User = use('User');
+const User = use('App/Models/User');
 
 class ClientSeeder {
   async run() {

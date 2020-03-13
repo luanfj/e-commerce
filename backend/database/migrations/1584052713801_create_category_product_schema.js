@@ -3,7 +3,7 @@ const Schema = use('Schema');
 
 class CreateCategoryProductSchema extends Schema {
   up() {
-    this.create('category_products', table => {
+    this.create('category_product', table => {
       table.increments();
       table
         .integer('category_id')
@@ -26,7 +26,7 @@ class CreateCategoryProductSchema extends Schema {
   }
 
   down() {
-    this.drop('category_products');
+    this.drop('category_product');
   }
 }
 

@@ -14,7 +14,7 @@ class CreateImagesSchema extends Schema {
   }
 
   down() {
-    this.drop('mages');
+    this.drop('images');
   }
 }
 
