@@ -7,7 +7,7 @@ Route.group(() => {
   Route.post('sessions', 'SessionController.store');
 
   Route.post('token/refresh', 'TokenController.store');
-  Route.delete('token/destroy', 'TokenController.destroy');
+  Route.post('token/destroy', 'TokenController.destroy');
 })
   .prefix('v1/auth')
   .namespace('Auth');
