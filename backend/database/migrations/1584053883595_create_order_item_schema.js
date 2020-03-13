@@ -23,7 +23,6 @@ class CreateOrderItemSchema extends Schema {
         .inTable('orders')
         .onUpdate('CASCADE')
         .onDelete('CASCADE');
-      table.timestamps();
     });
   }
 
