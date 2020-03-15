@@ -20,7 +20,7 @@ class CategoryController {
     try {
       const data = request.only(['title', 'description', 'image_id']);
 
-      const category = await Category.create(...data);
+      const category = await Category.create({ ...data });
 
       return response.status(201).send(category);
     } catch (error) {
@@ -31,17 +31,17 @@ class CategoryController {
   }
 
   async show({ params: { id }, response }) {
-    const category = await Category.findByOrFail(id);
+    const category = await Category.findOrFail(id);
 
     return response.send(category);
   }
 
   async update({ params: { id }, request, response }) {
-    const category = await Category.findByOrFail(id);
+    const category = await Category.findOrFail(id);
 
     const data = request.only(['title', 'description', 'image_id']);
 
-    category.merge(...data);
+    category.merge({ ...data });
 
     await category.save();
 
@@ -49,7 +49,7 @@ class CategoryController {
   }
 
   async destroy({ params: { id }, response }) {
-    const category = await Category.findByOrFail(id);
+    const category = await Category.findOrFail(id);
 
     await category.delete();
 
