@@ -26,7 +26,7 @@ class CategoryController {
     } catch (error) {
       return response
         .status(400)
-        .send({ message: 'Error processing your request' });
+        .send({ message: 'Error processing your request.' });
     }
   }
 
@@ -39,13 +39,19 @@ class CategoryController {
   async update({ params: { id }, request, response }) {
     const category = await Category.findOrFail(id);
 
-    const data = request.only(['title', 'description', 'image_id']);
+    try {
+      const data = request.only(['title', 'description', 'image_id']);
 
-    category.merge({ ...data });
+      category.merge({ ...data });
 
-    await category.save();
+      await category.save();
 
-    return response.send(category);
+      return response.send(category);
+    } catch (error) {
+      return response
+        .status(400)
+        .send({ message: 'Error processing your request.' });
+    }
   }
 
   async destroy({ params: { id }, response }) {
