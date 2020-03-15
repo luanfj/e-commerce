@@ -1,5 +1,6 @@
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Image = use('App/Models/Image');
+
 const { manageSingleUpload, manageMultipleUploads } = use('App/Helpers');
 const Helpers = use('Helpers');
 const fs = use('fs');
