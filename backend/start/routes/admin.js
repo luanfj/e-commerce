@@ -8,6 +8,9 @@ Route.group(() => {
 
   Route.resource('images', 'ImageController').apiOnly();
 
+  Route.post('order/:id/discount', 'ApplyDiscountController.store');
+  Route.delete('order/:id/discount', 'ApplyDiscountController.destroy');
+
   Route.resource('orders', 'OrderController').apiOnly();
 
   Route.resource('products', 'ProductController').apiOnly();

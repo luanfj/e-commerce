@@ -151,9 +151,6 @@ class CouponController {
     const coupon = await Coupon.findOrFail(id);
 
     try {
-      await coupon.products().detach([], trx);
-      await coupon.orders().detach([], trx);
-      await coupon.users().detach([], trx);
       await coupon.delete(trx);
 
       await trx.commit();

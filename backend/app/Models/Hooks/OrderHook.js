@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-multi-assign
 const OrderHook = (exports = module.exports = {});
 
 OrderHook.updateValues = async model => {
