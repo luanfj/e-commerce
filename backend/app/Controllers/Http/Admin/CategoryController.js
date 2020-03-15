@@ -36,6 +36,18 @@ class CategoryController {
     return response.send(category);
   }
 
+  async update({ params: { id }, request, response }) {
+    const category = await Category.findByOrFail(id);
+
+    const data = request.only(['title', 'description', 'image_id']);
+
+    category.merge(...data);
+
+    await category.save();
+
+    return response.send(category);
+  }
+
   async destroy({ params: { id }, response }) {
     const category = await Category.findByOrFail(id);
 
