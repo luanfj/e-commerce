@@ -29,6 +29,20 @@ class CategoryController {
         .send({ message: 'Error processing your request' });
     }
   }
+
+  async show({ params: { id }, response }) {
+    const category = await Category.findByOrFail(id);
+
+    return response.send(category);
+  }
+
+  async destroy({ params: { id }, response }) {
+    const category = await Category.findByOrFail(id);
+
+    await category.delete();
+
+    return response.status(204).send();
+  }
 }
 
 module.exports = CategoryController;
