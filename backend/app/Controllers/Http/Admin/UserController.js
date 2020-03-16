@@ -8,9 +8,10 @@ class UserController {
     const query = User.query();
 
     if (name) {
-      query.where('name', 'ILIKE', `%${name}%`);
-      query.orWhere('surname', 'ILIKE', `%${name}%`);
-      query.orWhere('email', 'ILIKE', `%${name}%`);
+      query
+        .where('name', 'ILIKE', `%${name}%`)
+        .orWhere('surname', 'ILIKE', `%${name}%`)
+        .orWhere('email', 'ILIKE', `%${name}%`);
     }
 
     const users = await query.paginate(pagination.page, pagination.limit);
